@@ -71,9 +71,14 @@ class App extends View {
                     .setOffset({ bottom: 20 }),
                 
                 new Button(new Text("Counter: " + this.state.get("counter").toString()))
-                    .setHandlerFor({ event: "click", handler: event => {
-                        this.state.set("counter", this.state.get("counter") + 1)
-                    }})
+                    .addHandlerFor("click",
+                        (event) => {
+                        this.state.set(
+                            {
+                                "counter", this.state.get("counter") + 1
+                            }
+                        );
+                    })
             ])
         )
     }
